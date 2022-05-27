@@ -8,6 +8,7 @@ class SearchViewController: UIViewController {
     let tableViewTowns = UITableView()
     let searchBar = UISearchBar()
     let currentViewModel = CurrentGeoViewModel()
+    weak var delegate: SearchViewControllerDelegate?
 
     let cellId = "TownsCellId"
     
@@ -19,12 +20,6 @@ class SearchViewController: UIViewController {
         self.tableViewTowns.register(TownsTableViewCell.self, forCellReuseIdentifier: cellId)
         self.searchBar.delegate = self
         self.viewModel.sendDataToTableView()
-        
-//        jsonParsing.jsonCitiesParse()
-//        filterredData = jsonParsing.arrayCitiesEn
-//        initJSONCityArray = self.jsonParsing.arrayCitiesEn
-//        initJSONLatArray = self.jsonParsing.latitude
-//        initJSONLonArray = self.jsonParsing.longtitude
     }
     
     func setupView() {
@@ -46,7 +41,10 @@ class SearchViewController: UIViewController {
             tableViewTowns.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
-
-
-
 }
+
+protocol SearchViewControllerDelegate: AnyObject {
+    func sendNewRequest(geoLabel: String)
+}
+
+

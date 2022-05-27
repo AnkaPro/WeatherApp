@@ -4,10 +4,12 @@ import UIKit
 class TownsTableViewCell: UITableViewCell {
 
     let townLabel = UILabel()
+    let viewModel = TownsTableViewCellViewModel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupUI()
+        self.bind()
     }
     
     required init?(coder: NSCoder) {
@@ -29,8 +31,10 @@ class TownsTableViewCell: UITableViewCell {
         ])
     }
     
-    func configure(with text: String) {
-        townLabel.text = text
+    func bind() {
+        viewModel.townLabelText.bind { text in
+            self.townLabel.text = text
+        }
     }
 
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D07BC1982800675F0053D477 /* CurrentGeoTableViewCellViewModel.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BC1972800675F0053D477 /* CurrentGeoTableViewCellViewModel.swift.swift */; };
+		D07BC19A280067850053D477 /* CurrentGeoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BC199280067850053D477 /* CurrentGeoCollectionViewCellViewModel.swift */; };
+		D07BC19C280067AB0053D477 /* TownsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BC19B280067AB0053D477 /* TownsTableViewCellViewModel.swift */; };
+		D07BC19E280086690053D477 /* CurrentGeoViewController+SearchViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BC19D280086690053D477 /* CurrentGeoViewController+SearchViewControllerDelegate.swift */; };
 		D0E2A9E627F637B800C9B747 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2A9E527F637B800C9B747 /* AppDelegate.swift */; };
 		D0E2A9E827F637B800C9B747 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2A9E727F637B800C9B747 /* SceneDelegate.swift */; };
 		D0E2A9EA27F637B800C9B747 /* CurrentGeoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2A9E927F637B800C9B747 /* CurrentGeoViewController.swift */; };
@@ -30,9 +34,14 @@
 		D0E2AA2027FB41B700C9B747 /* CityJsonData.json in Resources */ = {isa = PBXBuildFile; fileRef = D0E2AA1F27FB41B700C9B747 /* CityJsonData.json */; };
 		D0E2AA2227FB41D500C9B747 /* TownsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2AA2127FB41D500C9B747 /* TownsTableViewCell.swift */; };
 		D0E2AA2427FB41F800C9B747 /* SearchViewController+UITableViewDelegate+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2AA2327FB41F800C9B747 /* SearchViewController+UITableViewDelegate+DataSource.swift */; };
+		D0FF61CA2817FFC80019AF82 /* CollectionCellConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF61C92817FFC80019AF82 /* CollectionCellConfigure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D07BC1972800675F0053D477 /* CurrentGeoTableViewCellViewModel.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGeoTableViewCellViewModel.swift.swift; sourceTree = "<group>"; };
+		D07BC199280067850053D477 /* CurrentGeoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGeoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		D07BC19B280067AB0053D477 /* TownsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownsTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		D07BC19D280086690053D477 /* CurrentGeoViewController+SearchViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentGeoViewController+SearchViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		D0E2A9E227F637B800C9B747 /* WeatherApp_MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp_MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E2A9E527F637B800C9B747 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0E2A9E727F637B800C9B747 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +67,7 @@
 		D0E2AA1F27FB41B700C9B747 /* CityJsonData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CityJsonData.json; sourceTree = "<group>"; };
 		D0E2AA2127FB41D500C9B747 /* TownsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownsTableViewCell.swift; sourceTree = "<group>"; };
 		D0E2AA2327FB41F800C9B747 /* SearchViewController+UITableViewDelegate+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UITableViewDelegate+DataSource.swift"; sourceTree = "<group>"; };
+		D0FF61C92817FFC80019AF82 /* CollectionCellConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellConfigure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				D0E2AA0927F728CF00C9B747 /* CurrentGeoTableViewCell.swift */,
+				D07BC1972800675F0053D477 /* CurrentGeoTableViewCellViewModel.swift.swift */,
 				D0E2AA0B27F749C600C9B747 /* CurrentGeoCollectionViewCell.swift */,
+				D07BC199280067850053D477 /* CurrentGeoCollectionViewCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -142,6 +154,7 @@
 				D0E2AA0727F64ED200C9B747 /* CurrentWeatherOptions.swift */,
 				D0E2A9FB27F6481B00C9B747 /* HourlyWeatherOptions.swift */,
 				D0E2A9F927F638A100C9B747 /* WeeklyWeatherOptions.swift */,
+				D0FF61C92817FFC80019AF82 /* CollectionCellConfigure.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +175,7 @@
 			children = (
 				D0E2AA0D27FB3A6400C9B747 /* CurrentGeoViewController+UITableViewDelegate+DataSourse.swift */,
 				D0E2AA0F27FB3A9700C9B747 /* CurrentGeoViewController+UICollectionViewDelegate+DataSource.swift */,
+				D07BC19D280086690053D477 /* CurrentGeoViewController+SearchViewControllerDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -170,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				D0E2AA2127FB41D500C9B747 /* TownsTableViewCell.swift */,
+				D07BC19B280067AB0053D477 /* TownsTableViewCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -262,11 +277,16 @@
 				D0E2AA0827F64ED300C9B747 /* CurrentWeatherOptions.swift in Sources */,
 				D0E2A9EA27F637B800C9B747 /* CurrentGeoViewController.swift in Sources */,
 				D0E2AA1927FB3C3900C9B747 /* SearchViewModel.swift in Sources */,
+				D07BC19E280086690053D477 /* CurrentGeoViewController+SearchViewControllerDelegate.swift in Sources */,
 				D0E2AA0E27FB3A6400C9B747 /* CurrentGeoViewController+UITableViewDelegate+DataSourse.swift in Sources */,
+				D0FF61CA2817FFC80019AF82 /* CollectionCellConfigure.swift in Sources */,
 				D0E2AA0627F64E5800C9B747 /* Manager.swift in Sources */,
 				D0E2AA1727FB3C0200C9B747 /* SearchViewController.swift in Sources */,
 				D0E2AA2227FB41D500C9B747 /* TownsTableViewCell.swift in Sources */,
+				D07BC19A280067850053D477 /* CurrentGeoCollectionViewCellViewModel.swift in Sources */,
 				D0E2AA1027FB3A9700C9B747 /* CurrentGeoViewController+UICollectionViewDelegate+DataSource.swift in Sources */,
+				D07BC1982800675F0053D477 /* CurrentGeoTableViewCellViewModel.swift.swift in Sources */,
+				D07BC19C280067AB0053D477 /* TownsTableViewCellViewModel.swift in Sources */,
 				D0E2A9E627F637B800C9B747 /* AppDelegate.swift in Sources */,
 				D0E2AA1E27FB417300C9B747 /* JSONCitiesParse.swift in Sources */,
 				D0E2A9FA27F638A100C9B747 /* WeeklyWeatherOptions.swift in Sources */,
@@ -411,12 +431,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 45SVS2HUVQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp_MVVM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,12 +459,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 45SVS2HUVQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp_MVVM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

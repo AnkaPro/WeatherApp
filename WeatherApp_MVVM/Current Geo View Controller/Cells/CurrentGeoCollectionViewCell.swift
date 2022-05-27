@@ -3,19 +3,16 @@ import UIKit
 
 class CurrentGeoCollectionViewCell: UICollectionViewCell {
     
+    let viewModel = CurrentGeoCollectionViewCellViewModel()
     var degreeLabel = UILabel()
     var hourLabel = UILabel()
     var weatherImage = UIImageView()
     let celsiusIcon = UIImageView()
-    let dateFormatter = DateFormatter()
-    lazy var animatableWeatherIconConstraints = {
-        return (square: self.weatherImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/4),
-                rectangle: self.weatherImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/3))
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -25,6 +22,7 @@ class CurrentGeoCollectionViewCell: UICollectionViewCell {
     func setupUI() {
         self.addSubview(weatherImage)
         weatherImage.translatesAutoresizingMaskIntoConstraints = false
+        weatherImage.contentMode = .scaleAspectFit
         degreeLabel.font = UIFont(name: "Inter-ExtraLight", size: 25)
         degreeLabel.textColor = .black
         self.addSubview(degreeLabel)
@@ -36,7 +34,7 @@ class CurrentGeoCollectionViewCell: UICollectionViewCell {
         celsiusIcon.sizeToFit()
         self.addSubview(celsiusIcon)
         celsiusIcon.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         
         NSLayoutConstraint.activate([
             weatherImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -56,28 +54,18 @@ class CurrentGeoCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func configure(degreeLabelText: Int, hourLabelText: Int, main: String) {
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.dateFormat = "h a"
-        let dateInterval = Date(timeIntervalSince1970: TimeInterval(hourLabelText))
-        let date = dateFormatter.string(from: dateInterval)
-        degreeLabel.text = String(degreeLabelText)
-        hourLabel.text = date
-        
-        if main == "Clouds" {
-            weatherImage.image = UIImage(named: main)
-            animatableWeatherIconConstraints.rectangle.isActive = true
-        } else if main == "Rain" {
-            weatherImage.image = UIImage(named: main)
-            animatableWeatherIconConstraints.rectangle.isActive = true
-        } else if main == "Snow" {
-            weatherImage.image = UIImage(named: main)
-            animatableWeatherIconConstraints.square.isActive = true
-        } else if main == "Clear" {
-            weatherImage.image = UIImage(named: main)
-            animatableWeatherIconConstraints.square.isActive = true
+    func bind() {
+        viewModel.degreeLabelText.bind { text in
+            self.degreeLabel.text = text
+        }
+        viewModel.hourLabelText.bind { text in
+            self.hourLabel.text = text
+        }
+        viewModel.weatherImage.bind { image in
+            self.weatherImage.image = image
         }
     }
-
 }
+
+
 

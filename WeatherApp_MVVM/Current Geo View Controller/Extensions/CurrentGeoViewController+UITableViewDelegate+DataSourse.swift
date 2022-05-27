@@ -3,23 +3,33 @@ import UIKit
 
 extension CurrentGeoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = self.viewModel.weeklyOptions.value.main?.count else { return 0 }
-        return count
+        return self.viewModel.weeklyOptions.value.main?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: tabelViewCellId, for: indexPath) as? CurrentGeoTableViewCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: tabelViewCellId, for: indexPath) as? CurrentGeoTableViewCell else { return UITableViewCell() }
         
-        guard let dates = self.viewModel.weeklyOptions.value.date else { return cell}
-        let date = dates[indexPath.row]
-        guard let temperatures = self.viewModel.weeklyOptions.value.temperature else { return cell }
-        let temp = temperatures[indexPath.row]
-        guard let weatherTexts = self.viewModel.weeklyOptions.value.main else { return cell }
-        let main = weatherTexts[indexPath.row]
+        let configurator = CollectionCellConfigure(temperature: nil, date: nil, main: nil)
         
-        cell.configure(dateText: date, degreeText: temp, weatherText: main)
+        if let dates = self.viewModel.weeklyOptions.value.date {
+            configurator.date = dates[indexPath.row]
+        }
+        if let temperatures = self.viewModel.weeklyOptions.value.temperature {
+            configurator.temperature = temperatures[indexPath.row]
+        }
+        
+        if let weatherTexts = self.viewModel.weeklyOptions.value.main {
+            configurator.main = weatherTexts[indexPath.row]
+        }
+        
+        cell.viewModel.configure(config: configurator)
+        
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

@@ -9,7 +9,9 @@ class Manager {
     
     func sendRequest(currentOptions: @escaping (CurrentWeatherOptions) -> (), hourlyOptions: @escaping (HourlyWeatherOptions) -> (), weeklyOptions: @escaping (WeeklyWeatherOptions) -> ()) {
         
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=55.775&lon=37.557&units=metric&appid=00056f33495bde97b7eea25630eec4a3") else { return }
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longtitude)&units=metric&appid=00056f33495bde97b7eea25630eec4a3") else { return }
+        print(latitude)
+        print(longtitude)
         
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields?["Content-Type"] = "application/json"
@@ -35,9 +37,6 @@ class Manager {
                         currentManager.geo = timezone
                         currentManager.date = dt
                         currentManager.temperature = String(Int(temp))
-//                        completion(timezone)
-//                        temperature(currentTemp)
-//                        date(dt)
                         
                         guard let daily = json["daily"] as? [Any] else { return }
                         let weeklyManager = WeeklyWeatherOptions(temperature: [], date: [], main: [])
@@ -52,12 +51,9 @@ class Manager {
                                 if let weatherFirst = weather.first as? [String: Any] {
                                     guard let main = weatherFirst["main"] as? String else { return }
                                     weeklyManager.main?.append(main)
-//                                    weeklyManager.main.append(main)
                                 }
                                 weeklyManager.temperature?.append(Int(tempDay))
                                 weeklyManager.date?.append(dt)
-//                                weeklyManager.tempDay.append(Int(tempDay))
-//                                weeklyManager.date.append(dt)
                             }
                         }
                         
@@ -72,12 +68,9 @@ class Manager {
                                 if let weatherFirst = weather.first as? [String: Any] {
                                     guard let main = weatherFirst["main"] as? String else { return }
                                     hourlyManager.main?.append(main)
-//                                    hourlyManager.main.append(main)
                                 }
                                 hourlyManager.temperature?.append(Int(temp))
                                 hourlyManager.date?.append(dt)
-//                                hourlyManager.temp.append(Int(temp))
-//                                hourlyManager.date.append(dt)
                             }
                         }
                         currentOptions(currentManager)
@@ -89,7 +82,6 @@ class Manager {
                 }
             }
         }
-        
         task.resume()
     }
 }
